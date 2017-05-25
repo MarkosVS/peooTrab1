@@ -3,8 +3,8 @@ public abstract class Elemento{
 	private TipoElemento tipo;
 
 	//construtor
-	public Elemento(){
-		this.tipo = TipoElemento.ESPACOVAZIO;
+	public Elemento(TipoElemento tipo){
+		this.tipo = tipo;
 	}
 
 	//getter
