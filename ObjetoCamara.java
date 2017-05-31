@@ -12,4 +12,9 @@ public class ObjetoCamara extends Elemento{
 	public String getNome(){
 		return this.nome;
 	}
+
+	//setter
+	public void setNome(String nome){
+		this.nome = nome;
+	}
 }
