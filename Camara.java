@@ -11,4 +11,9 @@ public class Camara{
 	public ObjetoCamara[][] getCenario(){
 		return this.cenario;
 	}
+
+	//métodos
+	public void iniciar(TipoCamara tipo, Aventureiro av){
+		//
+	}
 }
