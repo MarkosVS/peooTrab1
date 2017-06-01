@@ -26,4 +26,9 @@ public class Caverna{
 	public void setAventureiro(Aventureiro av){
 		this.aventureiro = av;
 	}
+
+	//métodos
+	public void iniciar(TipoCamara tipo){
+		this.camara.iniciar(tipo, this.aventureiro);
+	}
 }
