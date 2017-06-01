@@ -2,11 +2,7 @@ public abstract class Personagem extends Elemento{
 	//atributos
 	private String nome;
 
-	//construtores
-	public Personagem(TipoElemento t){
-		super(t);
-	}
-
+	//construtor
 	public Personagem(TipoElemento t, String nome){
 		super(t);
 		this.nome = nome;
