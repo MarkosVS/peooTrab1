@@ -24,6 +24,14 @@ public class Camara{
 		switch(tipo){
 			case FACIL:
 				this.cenario[length-1][length-1] = tes;
+				break;
+			case DIFICIL:
+				this.cenario[length-1][length-1] = tes;
+				break;
+			case ERRADA:
+				break;
+			default:
+				break;
 		}
 	}
 }
