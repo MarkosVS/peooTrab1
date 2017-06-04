@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Camara{
 	//atributos
 	private ObjetoCamara[][] cenario;
@@ -14,10 +16,13 @@ public class Camara{
 
 	//métodos
 	public void iniciar(TipoCamara tipo, Aventureiro av){
+		//objeto da classe random
+		Random jv = new Random();
 		//variavel pra armazenar o tamanho da matriz
 		int length = this.cenario.length;
-		//cria um ObjetoCamara tesouro
+		//cria um ObjetoCamara tesouro e um joao dorminhoco
 		ObjetoCamara tes = new ObjetoCamara(TipoElemento.TESOURO, "Tesouro");
+		ObjetoCamara joao = new ObjetoCamara(TipoElemento.JOAODORMINHOCO, "João Dorminhoco");
 		//cria um aventureiro igual ao passado como parametro e coloca na posição (0,0)
 		this.cenario[0][0] = new ObjetoCamara(av.getTipo(), av.getNome());
 		//switch-case com os tipos de camara
