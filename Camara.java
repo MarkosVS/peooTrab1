@@ -16,8 +16,6 @@ public class Camara{
 
 	//métodos
 	public void iniciar(TipoCamara tipo, Aventureiro av){
-		//objeto da classe random
-		Random jv = new Random();
 		//variavel pra armazenar o tamanho da matriz
 		int length = this.cenario.length;
 		//cria um ObjetoCamara tesouro e um joao dorminhoco
@@ -37,6 +35,40 @@ public class Camara{
 				break;
 			default:
 				break;
+		}
+	}
+
+	private void addElemento(ObjetoCamara obj, int span){
+		//objeto da classe random
+		Random jv = new Random();
+		//indices
+		int i, j;
+		//flag
+		boolean flag = false;
+		while(!flag){
+			i = jv.nextInt(span);
+			j = jv.nextInt(span);
+			if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO){
+				this.cenario[i][j] = obj;
+				flag = true;
+			}
+		}
+	}
+
+	private void addJoaoDorminhoco(ObjetoCamara obj){
+		//objeto da classe random
+		Random jv = new Random();
+		//indices
+		int i, j;
+		//flag
+		boolean flag = false;
+		while(!flag){
+			i = (jv.nextInt(this.cenario.length - 4)) + 2;
+			j = (jv.nextInt(this.cenario.length - 4)) + 2;
+			if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO){
+				this.cenario[i][j] = obj;
+				flag = true;
+			}
 		}
 	}
 }
