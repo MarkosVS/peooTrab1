@@ -7,6 +7,9 @@ public class Camara{
 	//construtor
 	public Camara(int n){
 		this.cenario = new ObjetoCamara[n][n];
+		for(int i = 0; i < n; i++)
+			for(int j = 0; j < n; j++)
+				this.cenario[i][j] = new ObjetoCamara(TipoElemento.EPACOVAZIO, "Espaço vazio");
 	}
 
 	//getter
@@ -24,21 +27,31 @@ public class Camara{
 		this.cenario[0][0] = new ObjetoCamara(av.getTipo(), av.getNome());
 		//switch-case com os tipos de camara
 		switch(tipo){
-			case TipoCamara.FACIL:
+			case FACIL:
 				this.cenario[length-1][length-1] = tes;
 				break;
-			case TipoCamara.DIFICIL:
+			case DIFICIL:
 				addJoaoDorminhoco();
+				for(int i = 1; i < length/2; i++)
+					addObstaculo();
 				this.cenario[length-1][length-1] = tes;
 				break;
-			case TipoCamara.ERRADA:
+			case ERRADA:
+				addJoaoDorminhoco();
+				for(int i = 1; i < length/2; i++)
+					addObstaculo();
+				this.cenario[length-1][length-1] = new ObjetoCamara(TipoElemento.MENSAGEM, "Mensagem");	
 				break;
 			default:
 				break;
 		}
 	}
 
-	private void addElementos(ObjetoCamara obj, int span){
+	public void visualizarCenario(){
+		//
+	}
+
+	private void addObstaculo(){
 		//objeto da classe random
 		Random jv = new Random();
 		//indices
@@ -46,10 +59,10 @@ public class Camara{
 		//flag
 		boolean flag = false;
 		while(!flag){
-			i = jv.nextInt(span);
-			j = jv.nextInt(span);
+			i = jv.nextInt(this.cenario.length);
+			j = jv.nextInt(this.cenario.length);
 			if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO){
-				this.cenario[i][j] = obj;
+				this.cenario[i][j] = new ObjetoCamara(TipoElemento.OBSTACULO, "Obstáculo");;
 				flag = true;
 			}
 		}
