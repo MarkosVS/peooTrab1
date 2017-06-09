@@ -31,4 +31,8 @@ public class Caverna{
 	public void iniciar(TipoCamara tipo){
 		this.camara.iniciar(tipo, this.aventureiro);
 	}
+
+	public void visualizarCenario(){
+		this.camara.visualizarCenario();
+	}
 }

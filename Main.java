@@ -3,5 +3,6 @@ public class Main{
 		Aventureiro mv = new Aventureiro("Marcos Vinicius");
 		Caverna cav = new Caverna(mv, 10);
 		cav.iniciar(TipoCamara.FACIL);
+		cav.visualizarCenario();
 	}
 }
