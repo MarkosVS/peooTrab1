@@ -55,13 +55,14 @@ public class Camara{
 		//objeto da classe random
 		Random jv = new Random();
 		//indices
-		int i, j;
+		int i, j, len = this.cenario.length;
 		//flag
 		boolean flag = false;
 		while(!flag){
-			i = jv.nextInt(this.cenario.length);
-			j = jv.nextInt(this.cenario.length);
-			if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO){
+			i = jv.nextInt(len);
+			j = jv.nextInt(len);
+			boolean caminhoPreso = (i >= (len-2) && j >= (len-2)) || (i < 2 && j < 2);
+			if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO && !caminhoPreso){
 				this.cenario[i][j] = new ObjetoCamara(TipoElemento.OBSTACULO, "Obstáculo");;
 				flag = true;
 			}
