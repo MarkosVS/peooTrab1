@@ -48,7 +48,21 @@ public class Camara{
 	}
 
 	public void visualizarCenario(){
-		//
+		for(int i = 0; i < this.cenario.length; i++)
+			for(int j = 0; j < this.cenario.length; j++){
+				if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO)
+					System.out.println("-    -");
+				else if(this.cenario[i][j].getTipo() == TipoElemento.AVENTUREIRO)
+					System.out.println("-Aven-");
+				else if(this.cenario[i][j].getTipo() == TipoElemento.JOAODORMINHOCO)
+					System.out.println("-João-");
+				else if(this.cenario[i][j].getTipo() == TipoElemento.OBSTACULO)
+					System.out.println("-Obst-");
+				else if(this.cenario[i][j].getTipo() == TipoElemento.MENSAGEM)
+					System.out.println("-Mens-");
+				else
+					System.out.println("-Teso-");
+			}
 	}
 
 	private void addObstaculo(){
