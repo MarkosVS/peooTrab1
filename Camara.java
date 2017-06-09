@@ -31,16 +31,16 @@ public class Camara{
 				this.cenario[length-1][length-1] = tes;
 				break;
 			case DIFICIL:
-				addJoaoDorminhoco();
-				for(int i = 1; i <= length/2; i++)
-					addObstaculo();
 				this.cenario[length-1][length-1] = tes;
+				addJoaoDorminhoco();
+				for(int i = 0; i <= length/2; i++)
+					addObstaculo();
 				break;
 			case ERRADA:
+				this.cenario[length-1][length-1] = new ObjetoCamara(TipoElemento.MENSAGEM, "Mensagem");
 				addJoaoDorminhoco();
-				for(int i = 1; i <= length/2; i++)
-					addObstaculo();
-				this.cenario[length-1][length-1] = new ObjetoCamara(TipoElemento.MENSAGEM, "Mensagem");	
+				for(int i = 0; i <= length/2; i++)
+					addObstaculo();	
 				break;
 			default:
 				break;
