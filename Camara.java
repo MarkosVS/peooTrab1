@@ -6,6 +6,8 @@ public class Camara{
 
 	//construtor
 	public Camara(int n){
+		if(n < 5)
+			n = 5;
 		this.cenario = new ObjetoCamara[n][n];
 		for(int i = 0; i < n; i++)
 			for(int j = 0; j < n; j++)
