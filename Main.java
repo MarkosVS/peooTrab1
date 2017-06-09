@@ -8,7 +8,7 @@ public class Main{
 		int tamanho = scan.nextInt();
 		Aventureiro mv = new Aventureiro("Marcos Vinicius");
 		Caverna cav = new Caverna(mv, tamanho);
-		cav.iniciar(TipoCamara.FACIL);
+		cav.iniciar(TipoCamara.DIFICIL);
 		cav.visualizarCenario();
 		/*
 		System.out.println("");
