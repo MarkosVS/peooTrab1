@@ -37,8 +37,32 @@ public abstract class Personagem extends Elemento{
             //switch-case pra realizar o movimento
             switch(mov){
                 case UP:
-                    if(x == 0)
-                        throw new AcaoInvalidaException();
+                    //não deixar o personagem sair da camara
+                    if(x == 0){
+                        cam.visualizarCenario();
+                        throw new AcaoInvalidaException("Não é possível sair da câmara");
+                    }
+                    
+                    //não deixar o personagem atravessar um obstáculo
+                    if(cam.getCenario()[x-1][y].getTipo() == TipoElemento.OBSTACULO){
+                        cam.visualizarCenario();
+                        throw new AcaoInvalidaException("Não é possível se atravessar um obstáculo");
+                    }
+                    
+                    //checa se acima do personagem é um espaço vazio, se sim, já realiza o movimento
+                    if(cam.getCenario()[x-1][y].getTipo() == TipoElemento.EPACOVAZIO){
+                       cam.getCenario()[x-1][y] = cam.getCenario()[x][y];
+                       cam.getCenario()[x][y] = new ObjetoCamara(TipoElemento.EPACOVAZIO, "Espaço vazio");
+                       cam.visualizarCenario();
+                       return;
+                    }
+                    
+                    //checa o tipo do personagem
+                    if(cam.getCenario()[x][y].getTipo() == TipoElemento.AVENTUREIRO){
+                        //
+                    }else if(cam.getCenario()[x][y].getTipo() == TipoElemento.JOAODORMINHOCO){
+                        //
+                    }
                     break;
                 case DOWN:
                     break;
