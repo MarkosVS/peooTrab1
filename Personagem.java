@@ -62,13 +62,13 @@ public abstract class Personagem extends Elemento{
                         if(cam.getCenario()[x-1][y].getTipo() == TipoElemento.JOAODORMINHOCO){
                             cam.visualizarCenario();
                             throw new AcaoInvalidaException("Não é possível ir em direção ao João Dorminhoco");
-                        }else if(cam.getCenario()[x-1][y].getTipo() == TipoElemento.TESOURO){
+                        }
+                    }else if(cam.getCenario()[x][y].getTipo() == TipoElemento.JOAODORMINHOCO){
+                        if(cam.getCenario()[x-1][y].getTipo() == TipoElemento.AVENTUREIRO){
                             cam.getCenario()[x-1][y] = cam.getCenario()[x][y];
                             cam.getCenario()[x][y] = new ObjetoCamara(TipoElemento.EPACOVAZIO, "Espaço vazio");
                             cam.visualizarCenario();
                         }
-                    }else if(cam.getCenario()[x][y].getTipo() == TipoElemento.JOAODORMINHOCO){
-                        //
                     }
                     break;
                 case DOWN:
