@@ -1,21 +1,21 @@
 public abstract class Personagem extends Elemento{
-	//atributos
-	private String nome;
+    //atributos
+    private String nome;
 
-	//construtor
-	public Personagem(TipoElemento t, String nome){
-		super(t);
-		this.nome = nome;
-	}
+    //construtor
+    public Personagem(TipoElemento t, String nome){
+        super(t);
+        this.nome = nome;
+    }
 
-	//getter / setter
-	public String getNome(){
-		return this.nome;
-	}
+    //getter / setter
+    public String getNome(){
+        return this.nome;
+    }
 
-	public void setNome(String nome){
-		this.nome = nome;
-	}
+    public void setNome(String nome){
+        this.nome = nome;
+    }
         
         //métodos
         public void mover(Camara cam, Movimento mov) throws AcaoInvalidaException{
@@ -59,7 +59,14 @@ public abstract class Personagem extends Elemento{
                     
                     //checa o tipo do personagem
                     if(cam.getCenario()[x][y].getTipo() == TipoElemento.AVENTUREIRO){
-                        //
+                        if(cam.getCenario()[x-1][y].getTipo() == TipoElemento.JOAODORMINHOCO){
+                            cam.visualizarCenario();
+                            throw new AcaoInvalidaException("Não é possível ir em direção ao João Dorminhoco");
+                        }else if(cam.getCenario()[x-1][y].getTipo() == TipoElemento.TESOURO){
+                            cam.getCenario()[x-1][y] = cam.getCenario()[x][y];
+                            cam.getCenario()[x][y] = new ObjetoCamara(TipoElemento.EPACOVAZIO, "Espaço vazio");
+                            cam.visualizarCenario();
+                        }
                     }else if(cam.getCenario()[x][y].getTipo() == TipoElemento.JOAODORMINHOCO){
                         //
                     }
