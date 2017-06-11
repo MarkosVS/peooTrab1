@@ -1,3 +1,5 @@
+package trabexceção;
+
 import java.util.Random;
 
 public class Camara{

@@ -1,3 +1,5 @@
+package trabexceção;
+
 public abstract class Elemento{
 	//atributo
 	private TipoElemento tipo;

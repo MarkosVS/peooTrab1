@@ -1,3 +1,5 @@
+package trabexceção;
+
 public class ObjetoCamara extends Elemento{
 	//atributo
 	private String nome;

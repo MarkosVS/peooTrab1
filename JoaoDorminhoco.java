@@ -1,3 +1,5 @@
+package trabexceção;
+
 public class JoaoDorminhoco extends Personagem{
 	//atributos
 	private boolean acordado;

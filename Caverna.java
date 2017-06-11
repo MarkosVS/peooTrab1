@@ -1,3 +1,5 @@
+package trabexceção;
+
 public class Caverna{
 	//atributos
 	private Camara camara;
