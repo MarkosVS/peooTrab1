@@ -153,5 +153,6 @@ public class Main{
         Aventureiro mv = new Aventureiro("Marcos Vinicius");
         Caverna cav = new Caverna(mv, 7);
         jogar(cav);
+        cav.visualizarCenario();
     }
 }
