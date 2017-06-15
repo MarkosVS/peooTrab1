@@ -25,6 +25,10 @@ public class Camara{
 
 	//métodos
 	public void iniciar(TipoCamara tipo, Aventureiro av){
+                //seta todas as posições como espaço vazio pro caso de já haver elementos na camara
+                for(int i = 0; i < this.tamanho; i++)
+			for(int j = 0; j < this.tamanho; j++)
+				this.cenario[i][j] = new ObjetoCamara(TipoElemento.EPACOVAZIO, "Espaço vazio");
 		//cria um ObjetoCamara tesouro
 		ObjetoCamara tes = new ObjetoCamara(TipoElemento.TESOURO, "Tesouro");
 		//cria um aventureiro igual ao passado como parametro e coloca na posição (0,0)
