@@ -25,8 +25,6 @@ public class Camara{
 
 	//métodos
 	public void iniciar(TipoCamara tipo, Aventureiro av){
-		//variavel pra armazenar o tamanho da matriz
-		int length = this.cenario.length;
 		//cria um ObjetoCamara tesouro
 		ObjetoCamara tes = new ObjetoCamara(TipoElemento.TESOURO, "Tesouro");
 		//cria um aventureiro igual ao passado como parametro e coloca na posição (0,0)
@@ -34,18 +32,18 @@ public class Camara{
 		//switch-case com os tipos de camara
 		switch(tipo){
 			case FACIL:
-				this.cenario[length-1][length-1] = tes;
+				this.cenario[tamanho-1][tamanho-1] = tes;
 				break;
 			case DIFICIL:
-				this.cenario[length-1][length-1] = tes;
+				this.cenario[tamanho-1][tamanho-1] = tes;
 				addJoaoDorminhoco();
-				for(int i = 0; i < length/2; i++)
+				for(int i = 0; i < tamanho/2; i++)
 					addObstaculo();                  
 				break;
 			case ERRADA:
-				this.cenario[length-1][length-1] = new ObjetoCamara(TipoElemento.MENSAGEM, "Mensagem");
+				this.cenario[tamanho-1][tamanho-1] = new ObjetoCamara(TipoElemento.MENSAGEM, "Mensagem");
 				addJoaoDorminhoco();
-				for(int i = 0; i < length/2; i++)
+				for(int i = 0; i < tamanho/2; i++)
 					addObstaculo();	
 				break;
 			default:
@@ -54,8 +52,8 @@ public class Camara{
 	}
 
 	public void visualizarCenario(){
-		for(int i = 0; i < this.cenario.length; i++){
-			for(int j = 0; j < this.cenario.length; j++){
+		for(int i = 0; i < this.tamanho; i++){
+			for(int j = 0; j < this.tamanho; j++){
 				if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO)
 					System.out.print("-    -");
 				else if(this.cenario[i][j].getTipo() == TipoElemento.AVENTUREIRO)
@@ -77,13 +75,13 @@ public class Camara{
 		//objeto da classe random
 		Random jv = new Random();
 		//indices
-		int i, j, len = this.cenario.length;
+		int i, j;
 		//flag
 		boolean flag = false, caminhoPreso;
 		while(!flag){
-			i = jv.nextInt(len);
-			j = jv.nextInt(len);
-			caminhoPreso = (i >= (len-2) && j >= (len-2)) || (i < 2 && j < 2);
+			i = jv.nextInt(tamanho);
+			j = jv.nextInt(tamanho);
+			caminhoPreso = (i >= (tamanho-2) && j >= (tamanho-2)) || (i < 2 && j < 2);
 			if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO && !caminhoPreso){
 				this.cenario[i][j] = new ObjetoCamara(TipoElemento.OBSTACULO, "Obstáculo");;
 				flag = true;
@@ -97,12 +95,12 @@ public class Camara{
 		//objeto da classe random
 		Random jv = new Random();
 		//indices
-		int i, j, len = this.cenario.length;
+		int i, j;
 		//flag
 		boolean flag = false;
 		while(!flag){
-			i = (jv.nextInt(this.cenario.length - 4)) + 2;
-			j = (jv.nextInt(this.cenario.length - 4)) + 2;
+			i = (jv.nextInt(this.tamanho - 4)) + 2;
+			j = (jv.nextInt(this.tamanho - 4)) + 2;
 			if(this.cenario[i][j].getTipo() == TipoElemento.EPACOVAZIO){
 				this.cenario[i][j] = joao;
 				flag = true;
