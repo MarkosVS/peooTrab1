@@ -11,5 +11,9 @@ public class Aventureiro extends Personagem{
             int len = cam.getCenario().length;
             return cam.getCenario()[len-1][len-1].getTipo() == TipoElemento.AVENTUREIRO;
         }
+        
+        public boolean encontrouMensagem(Camara cam){
+            int len = cam.getCenario().length;
+            return cam.getCenario()[len-1][len-1].getTipo() == TipoElemento.AVENTUREIRO;
+        }
 }
-
