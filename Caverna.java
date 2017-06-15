@@ -1,5 +1,7 @@
 package trabexceção;
 
+import java.util.Random;
+
 public class Caverna{
 	//atributos
 	private Camara camara;
@@ -32,6 +34,17 @@ public class Caverna{
 	//métodos
 	public void iniciar(TipoCamara tipo){
 		this.camara.iniciar(tipo, this.aventureiro);
+	}
+        
+        public void iniciar(){
+                Random jv = new Random();
+                int n = jv.nextInt(3);
+                if(n == 0)
+                    this.camara.iniciar(TipoCamara.FACIL ,this.aventureiro);
+                else if(n == 1)
+                    this.camara.iniciar(TipoCamara.DIFICIL ,this.aventureiro);
+                else
+                    this.camara.iniciar(TipoCamara.ERRADA ,this.aventureiro);
 	}
 
 	public void visualizarCenario(){
