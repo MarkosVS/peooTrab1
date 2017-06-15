@@ -5,12 +5,14 @@ import java.util.Random;
 public class Camara{
 	//atributos
 	private ObjetoCamara[][] cenario;
+        private final int tamanho;
 
 	//construtor
 	public Camara(int n){
 		if(n < 5)
 			n = 5;
 		this.cenario = new ObjetoCamara[n][n];
+                this.tamanho = n;
 		for(int i = 0; i < n; i++)
 			for(int j = 0; j < n; j++)
 				this.cenario[i][j] = new ObjetoCamara(TipoElemento.EPACOVAZIO, "Espaço vazio");
@@ -97,7 +99,7 @@ public class Camara{
 		//indices
 		int i, j, len = this.cenario.length;
 		//flag
-		boolean flag = false, posicaoInvalida;
+		boolean flag = false;
 		while(!flag){
 			i = (jv.nextInt(this.cenario.length - 4)) + 2;
 			j = (jv.nextInt(this.cenario.length - 4)) + 2;
@@ -107,4 +109,16 @@ public class Camara{
 			}
 		}
 	}
+        
+        public TipoCamara tipo(){
+            if(this.cenario[tamanho-1][tamanho-1].getTipo() == TipoElemento.MENSAGEM)
+                return TipoCamara.ERRADA;
+            
+            //percorre a matriz em busca de obstaculos
+            for(int i = 0; i < tamanho; i++)
+                for(int j = 0; j < 0; j++)
+                    if(this.cenario[i][j].getTipo() == TipoElemento.OBSTACULO)
+                        return TipoCamara.DIFICIL;
+            return TipoCamara.FACIL;
+        }
 }
