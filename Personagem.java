@@ -173,7 +173,7 @@ public abstract class Personagem extends Elemento{
                         if(cam.getCenario()[x][y+1].getTipo() == TipoElemento.JOAODORMINHOCO){
                             cam.visualizarCenario();
                             throw new AcaoInvalidaException("Não é possível ir em direção ao João Dorminhoco");
-                        }else if(cam.getCenario()[x][y+1].getTipo() == TipoElemento.TESOURO || cam.getCenario()[x+1][y].getTipo() == TipoElemento.MENSAGEM){
+                        }else if(cam.getCenario()[x][y+1].getTipo() == TipoElemento.TESOURO || cam.getCenario()[x][y+1].getTipo() == TipoElemento.MENSAGEM){
                             cam.getCenario()[x][y+1] = cam.getCenario()[x][y];
                             cam.getCenario()[x][y] = new ObjetoCamara(TipoElemento.EPACOVAZIO, "Espaço vazio");
                             cam.visualizarCenario();
