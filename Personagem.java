@@ -149,7 +149,7 @@ public abstract class Personagem extends Elemento{
                     break;
                 case RIGHT:
                     //não deixar o personagem sair da camara
-                    if(y == length + 1){
+                    if(y == length - 1){
                         cam.visualizarCenario();
                         throw new AcaoInvalidaException("Não é possível sair da câmara");
                     }
