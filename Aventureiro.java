@@ -9,11 +9,11 @@ public class Aventureiro extends Personagem{
         //métodos
         public boolean encontrouTesouro(Camara cam){
             int len = cam.getCenario().length;
-            return cam.getCenario()[len-1][len-1].getTipo() == TipoElemento.AVENTUREIRO;
+            return cam.getCenario()[len-1][len-1].getTipo() == TipoElemento.AVENTUREIRO && cam.tipo() != TipoCamara.ERRADA;
         }
         
         public boolean encontrouMensagem(Camara cam){
             int len = cam.getCenario().length;
-            return cam.getCenario()[len-1][len-1].getTipo() == TipoElemento.AVENTUREIRO;
+            return cam.getCenario()[len-1][len-1].getTipo() == TipoElemento.AVENTUREIRO && cam.tipo() == TipoCamara.ERRADA;
         }
 }
